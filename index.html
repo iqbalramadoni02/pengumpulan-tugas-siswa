@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pengumpulan Tugas — SMAIT Al-Ittihad</title>
+<meta name="theme-color" content="#6d4bff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='4' y1='4' x2='60' y2='60' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%236d4bff'/%3E%3Cstop offset='.5' stop-color='%23b14bff'/%3E%3Cstop offset='1' stop-color='%23ff4d97'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='18' fill='url(%23g)'/%3E%3Crect x='13' y='34' width='9' height='17' rx='4.5' fill='%23fff' opacity='.72'/%3E%3Crect x='27.5' y='25' width='9' height='26' rx='4.5' fill='%23fff' opacity='.88'/%3E%3Crect x='42' y='16' width='9' height='35' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='46.5' cy='10' r='5.5' fill='%23fff'/%3E%3Ccircle cx='46.5' cy='10' r='2.4' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6fc; --surface: #ffffff; --surface-2: #f7f8fd;
+  --ink: #141a2e; --muted: #6b748f; --line: #e3e7f2;
+  --brand: #6d4bff; --rose: #ff4d97; --jade: #12b981; --amber: #f59e0b; --coral: #ff4d4d;
+  --grad: linear-gradient(135deg, #6d4bff 0%, #b14bff 45%, #ff4d97 100%);
+  --shadow: 0 16px 40px -22px rgba(23, 32, 54, .45);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #070b16; --surface: #0f1626; --surface-2: #151e33; --ink: #eef2ff; --muted: #8794b5; --line: #22304d; --brand: #8b6bff; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.55;
+  padding: env(safe-area-inset-top, 0) 0 calc(48px + env(safe-area-inset-bottom, 0));
+}
+body::before {
+  content: ""; position: fixed; inset: -20% -10% auto -10%; height: 46vh; z-index: -1; pointer-events: none;
+  background: radial-gradient(40% 50% at 18% 0%, color-mix(in srgb, var(--brand) 42%, transparent), transparent 70%),
+    radial-gradient(36% 46% at 84% 4%, color-mix(in srgb, var(--rose) 34%, transparent), transparent 72%);
+  filter: blur(16px); opacity: .5;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 22px 16px 40px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+header h1 { margin: 0; font-size: 21px; font-weight: 800; letter-spacing: -.03em; }
+header p { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 18px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.card h3 { margin: 0 0 4px; font-size: 16.5px; font-weight: 800; letter-spacing: -.02em; }
+.meta { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+.instruction { white-space: pre-wrap; font-size: 14px; background: var(--surface-2); border-radius: 14px; padding: 11px 13px; margin: 10px 0; }
+label { display: block; font-size: 12.5px; font-weight: 700; margin: 12px 0 5px; }
+input, textarea, select {
+  width: 100%; font: inherit; font-size: 14.5px; color: var(--ink); background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: 14px; padding: 11px 13px;
+}
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--brand); outline-offset: -1px; }
+textarea { min-height: 96px; resize: vertical; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 20px;
+  border: 0; border-radius: 999px; background: var(--grad); color: #fff; font: inherit; font-weight: 800;
+  cursor: pointer; box-shadow: 0 12px 26px -16px var(--brand); width: 100%; margin-top: 14px;
+}
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+.btn:disabled { opacity: .6; cursor: wait; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 800; background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand); }
+.badge.late { background: color-mix(in srgb, var(--coral) 16%, transparent); color: var(--coral); }
+.badge.soon { background: color-mix(in srgb, var(--amber) 18%, transparent); color: var(--amber); }
+.badge.done { background: color-mix(in srgb, var(--jade) 16%, transparent); color: var(--jade); }
+.bar { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+.bar select { flex: 1; }
+.empty { text-align: center; padding: 34px 16px; color: var(--muted); font-size: 14px; }
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0));
+  background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+  box-shadow: var(--shadow); z-index: 20; max-width: 90vw; text-align: center;
+}
+.toast.err { background: var(--coral); color: #fff; }
+.toast.ok { background: var(--jade); color: #052e23; }
+.note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.sent { border-color: color-mix(in srgb, var(--jade) 45%, var(--line)); }
+footer { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 26px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg width="46" height="46" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <defs><linearGradient id="lg" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#6d4bff"/><stop offset=".5" stop-color="#b14bff"/><stop offset="1" stop-color="#ff4d97"/></linearGradient></defs>
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#lg)"/>
+      <rect x="13" y="34" width="9" height="17" rx="4.5" fill="#fff" opacity=".72"/>
+      <rect x="27.5" y="25" width="9" height="26" rx="4.5" fill="#fff" opacity=".88"/>
+      <rect x="42" y="16" width="9" height="35" rx="4.5" fill="#fff"/>
+      <circle cx="46.5" cy="10" r="5.5" fill="#fff"/><circle cx="46.5" cy="10" r="2.4" fill="url(#lg)"/>
+    </svg>
+    <div><h1>Pengumpulan Tugas</h1><p id="sub">SMAIT Al-Ittihad Pekanbaru</p></div>
+  </header>
+
+  <div class="card" id="idcard">
+    <label for="nama">Nama lengkap</label>
+    <input id="nama" placeholder="Tulis nama sesuai absen" autocomplete="name">
+    <label for="kelas">Kelas</label>
+    <select id="kelas"><option>Memuat…</option></select>
+    <p class="note">Nama dan kelas disimpan di perangkat ini supaya tidak perlu diketik ulang.</p>
+  </div>
+
+  <div id="list"><div class="empty">Memuat tugas…</div></div>
+
+  <footer>My Productivity Hub — portal siswa</footer>
+</div>
+
+<script>
+/* ===== Konfigurasi: URL Web App Apps Script milik guru ===== */
+const API = 'https://script.google.com/macros/s/AKfycbzWcLKC82ZjHoOFPJSVZ-kAOA4Ry_0A7yyEk6ANBMg-Cn96__N2mwu5d1fMmLtdPHc1/exec';
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const store = {
+  get(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { } }
+};
+
+function toast(msg, kind = '', ms = 4000) {
+  const old = $('.toast'); if (old) old.remove();
+  const el = document.createElement('div');
+  el.className = 'toast ' + kind;
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), ms);
+}
+
+/** Permintaan ke Apps Script. Content-Type text/plain agar tidak kena preflight CORS. */
+async function call(action, payload = {}, tries = 3) {
+  let lastErr;
+  for (let i = 0; i < tries; i++) {
+    try {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 30000);
+      const res = await fetch(API, {
+        method: 'POST', signal: ctrl.signal,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(Object.assign({ action }, payload))
+      });
+      clearTimeout(to);
+      const text = await res.text();
+      let j;
+      try { j = JSON.parse(text); } catch (e) { throw new Error('Server membalas bukan JSON. Pastikan akses deployment "Anyone".'); }
+      if (!j.ok) throw new Error(j.error || 'Permintaan gagal.');
+      return j;
+    } catch (e) {
+      lastErr = e;
+      if (i < tries - 1) await new Promise((r) => setTimeout(r, 600 * (i + 1)));
+    }
+  }
+  throw lastErr;
+}
+
+function fmtDate(iso) {
+  if (!iso) return '-';
+  const BLN = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+  const d = new Date(String(iso).slice(0, 10) + 'T00:00:00');
+  if (isNaN(d)) return String(iso);
+  return `${d.getDate()} ${BLN[d.getMonth()]} ${d.getFullYear()}`;
+}
+function dueBadge(iso) {
+  if (!iso) return '';
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const d = new Date(String(iso).slice(0, 10) + 'T00:00:00');
+  const n = Math.round((d - today) / 86400000);
+  if (n < 0) return `<span class="badge late">lewat ${-n} hari</span>`;
+  if (n === 0) return '<span class="badge late">hari ini</span>';
+  if (n <= 2) return `<span class="badge soon">${n} hari lagi</span>`;
+  return `<span class="badge">${n} hari lagi</span>`;
+}
+
+const App = {
+  classes: [],
+  async start() {
+    const params = new URLSearchParams(location.search);
+    $('#nama').value = store.get('siswa_nama');
+    $('#nama').addEventListener('input', (e) => store.set('siswa_nama', e.target.value));
+    try {
+      const j = await call('studentClasses');
+      this.classes = j.classes || [];
+    } catch (e) {
+      $('#list').innerHTML = `<div class="card"><h3>Tidak bisa terhubung</h3><p class="meta">${esc(e.message)}</p>
+        <p class="note">Minta guru memastikan deployment Apps Script memakai akses <b>Anyone</b> dan URL di berkas ini sudah benar.</p></div>`;
+      return;
+    }
+    const sel = $('#kelas');
+    if (!this.classes.length) {
+      sel.innerHTML = '<option value="">— belum ada kelas —</option>';
+      $('#list').innerHTML = '<div class="empty">Belum ada tugas yang dibuka guru.</div>';
+      return;
+    }
+    const saved = params.get('kelas') || store.get('siswa_kelas');
+    sel.innerHTML = this.classes.map((c) => `<option ${c.className === saved ? 'selected' : ''}>${esc(c.className)}</option>`).join('');
+    sel.addEventListener('change', () => { store.set('siswa_kelas', sel.value); this.load(sel.value); });
+    this.load(sel.value);
+  },
+
+  async load(cls) {
+    store.set('siswa_kelas', cls);
+    $('#list').innerHTML = '<div class="empty">Memuat tugas…</div>';
+    let tasks = [];
+    try { tasks = (await call('studentOpenTasks', { className: cls })).tasks || []; }
+    catch (e) { $('#list').innerHTML = `<div class="empty">Gagal memuat: ${esc(e.message)}</div>`; return; }
+    const me = ($('#nama').value || '').trim().toLowerCase();
+    if (!tasks.length) { $('#list').innerHTML = '<div class="empty">Belum ada tugas terbuka untuk kelas ini. 🎉</div>'; return; }
+    $('#list').innerHTML = tasks.map((t) => {
+      const sent = (t.names || []).some((n) => String(n).trim().toLowerCase() === me);
+      return `<div class="card ${sent ? 'sent' : ''}" data-task="${esc(t.id)}">
+        <h3>${esc(t.title)}</h3>
+        <div class="meta">${esc([t.subject, t.type].filter(Boolean).join(' · '))} · batas ${fmtDate(t.dueDate)} ${dueBadge(t.dueDate)} ${sent ? '<span class="badge done">sudah dikumpulkan</span>' : ''}</div>
+        ${t.instruction ? `<div class="instruction">${esc(t.instruction)}</div>` : ''}
+        ${t.link ? `<a class="btn ghost" href="${esc(t.link)}" target="_blank" rel="noopener">Buka bahan tugas</a>` : ''}
+        <label>Tautan pekerjaan (Google Drive / Docs)</label>
+        <input class="inp-link" placeholder="https://docs.google.com/…" inputmode="url">
+        <label>Jawaban / catatan</label>
+        <textarea class="inp-text" placeholder="Tulis jawaban atau keterangan singkat"></textarea>
+        <button class="btn" data-send="${esc(t.id)}">${sent ? 'Kirim ulang (menimpa jawaban lama)' : 'Kumpulkan tugas'}</button>
+        <p class="note">Sudah mengumpulkan: ${t.submissions} siswa. Nilai maksimum ${t.maxScore || 100}.</p>
+      </div>`;
+    }).join('');
+    $$('[data-send]').forEach((b) => b.addEventListener('click', () => this.submit(b)));
+  },
+
+  async submit(btn) {
+    const card = btn.closest('.card');
+    const name = ($('#nama').value || '').trim();
+    const link = (card.querySelector('.inp-link').value || '').trim();
+    const text = (card.querySelector('.inp-text').value || '').trim();
+    if (!name) { toast('Isi nama lengkap dulu ya.', 'err'); $('#nama').focus(); return; }
+    if (!link && !text) { toast('Isi tautan pekerjaan atau jawabannya.', 'err'); return; }
+    btn.disabled = true;
+    const label = btn.textContent;
+    btn.textContent = 'Mengirim…';
+    try {
+      const j = await call('studentSubmit', { taskId: btn.dataset.send, studentName: name, link, content: text });
+      toast(j.replaced ? 'Jawaban diperbarui. Terima kasih!' : 'Tugas terkumpul. Terima kasih!', 'ok', 5000);
+      store.set('siswa_nama', name);
+      this.load($('#kelas').value);
+    } catch (e) {
+      toast(e.message, 'err', 6000);
+      btn.disabled = false;
+      btn.textContent = label;
+    }
+  }
+};
+App.start();
+</script>
+</body>
+</html>
